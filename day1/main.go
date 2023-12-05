@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// Solution without regex
 func main() {
 	file, err := os.Open("input.txt")
 	if err != nil {

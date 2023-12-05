@@ -36,7 +36,6 @@ func main() {
 	fmt.Println(powerSum)
 }
 
-// With this approach, both part solutions can be calculated in one go
 func process(input string) map[string]int64 {
 	parts := strings.Split(input, ": ")
 

@@ -36,7 +36,6 @@ type Number struct {
 
 func process(data [][]string) (int, float64) {
 	var numbers []Number
-	var relevantNumbers []Number
 	var specialChars []Point
 	totalSum := 0
 	totalRatio := 0.0
@@ -72,7 +71,8 @@ func process(data [][]string) (int, float64) {
 			if isAdjacent(n, &c) {
 				if !n.Calculated {
 					n.Calculated = true
-					relevantNumbers = append(relevantNumbers, *n)
+					val, _ := strconv.Atoi(n.Num)
+					totalSum += val
 				}
 				if c.Char == "*" {
 					partNums = append(partNums, n.Num)
@@ -83,11 +83,6 @@ func process(data [][]string) (int, float64) {
 		if len(partNums) == 2 {
 			totalRatio += multiplyStrings(partNums[0], partNums[1])
 		}
-	}
-
-	for _, r := range relevantNumbers {
-		val, _ := strconv.Atoi(r.Num)
-		totalSum += val
 	}
 
 	return totalSum, totalRatio

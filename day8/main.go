@@ -57,6 +57,7 @@ func main() {
 	}
 
 	// Dirty LCM Solution
+	// Only works because it loops around to the starting node, which is not specified. meh.
 	maxSteps := []int{}
 	for _, e := range currentNodes {
 		currentNode := e

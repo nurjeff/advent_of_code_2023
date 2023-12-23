@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -20,6 +21,8 @@ func main() {
 	totalPoints := 0
 	totalCards := 0
 
+	t := time.Now()
+
 	for i := 0; i < len(cards); i++ {
 		totalPoints += cards[i].Points
 		for x := 1; x < cards[i].Matches+1; x++ {
@@ -27,6 +30,7 @@ func main() {
 		}
 		totalCards += cards[i].Amount
 	}
+	fmt.Println(time.Since(t))
 
 	fmt.Println(totalCards)
 	fmt.Println(totalPoints)
